@@ -2,7 +2,7 @@
 // @name         Gyao More Button Reviver
 // @namespace    http://y.ps.st/
 // @version      0.1
-// @description  Revive the More buttons that disappear on error in the new arrivals pages on Gyao
+// @description  Revive the More buttons that disappear on error in the new arrivals pages on Gyao by pressing Ctrl+Meta+M
 // @author       Yoichiro Takahashi
 // @match        *://gyao.yahoo.co.jp/arrivals
 // @match        *://gyao.yahoo.co.jp/arrivals/*
