@@ -16,11 +16,13 @@
     switch (series.category) {
     case "anime":
         add_google_link("Anikore", [series.title, "site:anikore.jp"]);
+        add_google_link("Amazon", [series.title, "site:amazon.co.jp", "prime"]);
         break;
     case "movie":
     case "tv":
     case "drama":
         add_google_link("Filmarks", [series.title, "site:filmarks.com", "-inurl:spoiler"]);
+        add_google_link("Amazon", [series.title, "site:amazon.co.jp", "prime"]);
         break;
     }
 
@@ -30,7 +32,7 @@
         a.setAttribute("href", "https://www.google.com/search?q=" + keywords.map(e => encodeURIComponent(e)).join("+"));
         a.setAttribute("target", "_blank");
         a.setAttribute("rel", "noopener noreferrer");
-        a.append(label);
+        a.append(`[${label}]`);
         s.parentNode.appendChild(a);
     }
 
