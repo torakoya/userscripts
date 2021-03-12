@@ -16,13 +16,16 @@
     switch (series.category) {
     case "anime":
         add_google_link("Anikore", [series.title, "site:anikore.jp"]);
-        add_google_link("Amazon", [series.title, "site:amazon.co.jp", "prime"]);
+        add_google_link("Amazon", [series.title, "site:amazon.co.jp", "prime", "アニメ"]);
         break;
     case "movie":
+        add_google_link("Filmarks", [series.title, "site:filmarks.com", "-inurl:spoiler", "映画"]);
+        add_google_link("Amazon", [series.title, "site:amazon.co.jp", "prime"]); // "映画" isn't included in the pages
+        break;
     case "tv":
     case "drama":
-        add_google_link("Filmarks", [series.title, "site:filmarks.com", "-inurl:spoiler"]);
-        add_google_link("Amazon", [series.title, "site:amazon.co.jp", "prime"]);
+        add_google_link("Filmarks", [series.title, "site:filmarks.com", "-inurl:spoiler", "ドラマ"]);
+        add_google_link("Amazon", [series.title, "site:amazon.co.jp", "prime", "ドラマ"]);
         break;
     }
 
