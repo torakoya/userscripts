@@ -35,7 +35,10 @@
     function add_google_link(label, keywords) {
         let s = document.querySelector(".video-titles");
         let a = document.createElement("a");
-        a.setAttribute("href", "https://www.google.com/search?q=" + keywords.map(e => encodeURIComponent(e)).join("+"));
+        a.setAttribute(
+            "href",
+            "https://www.google.com/search?q=" +
+                keywords.map(e => encodeURIComponent(e.replace(/(^|\s)-/g, "$1"))).join("+"));
         a.setAttribute("target", "_blank");
         a.setAttribute("rel", "noopener noreferrer");
         a.append(`[${label}]`);
