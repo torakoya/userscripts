@@ -38,7 +38,8 @@
         a.setAttribute(
             "href",
             "https://www.google.com/search?q=" +
-                keywords.map(e => encodeURIComponent(e.replace(/(\s)-/g, "$1"))).join("+"));
+                keywords.map(e => encodeURIComponent(e.replace(/(\s)-/g, "$1")))
+                    .join("+").replace(/^-/, ""));
         a.setAttribute("target", "_blank");
         a.setAttribute("rel", "noopener noreferrer");
         a.append(`[${label}]`);
