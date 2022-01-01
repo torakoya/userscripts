@@ -16,6 +16,7 @@
     switch (series.category) {
     case "anime":
         add_google_link("Anikore", [series.title, "site:anikore.jp"]);
+        add_google_link("MyAnimeList", [series.title, "site:myanimelist.net"]);
         add_google_link("Amazon", [series.title, "site:amazon.co.jp", "prime", "アニメ"]);
         add_google_link("Wikipedia", [series.title, "site:ja.wikipedia.org", "アニメ"]);
         break;
