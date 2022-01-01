@@ -46,18 +46,34 @@
         }
     }
 
-    document.addEventListener("keydown", event => {
+    function copy(doc = document) {
+        let s = doc.title + "\n" + doc.URL;
+        copyByClipboardApi(s)
+            .then(value => reportSuccess(s))
+            .catch(reason => {
+                if (copyByExecCommand(s)) {
+                    reportSuccess(s);
+                } else {
+                    reportFailure(s);
+                }
+            });
+    }
+
+    window.addEventListener("keydown", event => {
         if (event.code == "KeyC" && event.ctrlKey && event.metaKey) {
-            let s = document.title + "\n" + document.URL;
-            copyByClipboardApi(s)
-                .then(value => reportSuccess(s))
-                .catch(reason => {
-                    if (copyByExecCommand(s)) {
-                        reportSuccess(s);
-                    } else {
-                        reportFailure(s);
-                    }
-                });
+            if (window.top == window) {
+                copy();
+            } else {
+                window.top.postMessage({action: "copy"}, "*");
+            }
         }
     }, true);
+
+    if (window.top == window) {
+        window.addEventListener("message", event => {
+            if (event.data.action == "copy") {
+                copy();
+            }
+        }, true);
+    }
 })();
