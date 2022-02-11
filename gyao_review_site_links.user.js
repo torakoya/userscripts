@@ -32,6 +32,7 @@
         add_google_link("Wikipedia", [series.title, "site:ja.wikipedia.org", "ドラマ"]);
         break;
     }
+    add_google_link("Google", [series.title]);
 
     function add_google_link(label, keywords) {
         let s = document.querySelector(".video-titles");
