@@ -69,6 +69,7 @@
     }
 
     function normalize_title(title) {
-        return title.replace(/（R15[+＋]）$/, "");
+        return title.replace(/（R15[+＋]）$/, "")
+            .replace("[B-ch]", ""); // Bandai Channel
     }
 })();
